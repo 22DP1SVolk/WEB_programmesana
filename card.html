@@ -1,116 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
 
-<!-- Flexboxes -->
 <div class="flex-container">
     <div>
-        <img src="https://lh4.googleusercontent.com/qyrA5kR-lTStynpecJwuLKGjrGGV1_6HJ4By4hOYLuVSq4jsm5Q3jgXr-WQHExldtD9WYO4PoEz23IqAeFaExH2UnCDphnutaI7mv3va5VPaRUyS9V-S0NaKNocj6JsIsO6km9E " width="200" 
-        height="160">
-        <h1>this is my cat</h1>
-        <p>this cats name is Jerry</p>
+        <img src="https://lh4.googleusercontent.com/qyrA5kR-lTStynpecJwuLKGjrGGV1_6HJ4By4hOYLuVSq4jsm5Q3jgXr-WQHExldtD9WYO4PoEz23IqAeFaExH2UnCDphnutaI7mv3va5VPaRUyS9V-S0NaKNocj6JsIsO6km9E" width="200" height="160">
+        <h1>This is my cat</h1>
+        <p>This cat's name is Jerry</p>
         <button class="width-button"><span>Poga1</span></button>
     </div>
-    
 
     <div>
-        <img src="https://icatcare.org/app/uploads/2018/10/persian.jpg" width="200" 
-        height="150">
-        <h1>this is my other cat</h1>
-        <p>this cats name is Thomas</p>
+        <img src="https://icatcare.org/app/uploads/2018/10/persian.jpg" width="200" height="150">
+        <h1>This is my other cat</h1>
+        <p>This cat's name is Thomas</p>
         <button class="width-button"><span>Poga2</span></button>
     </div>
 
-    <div><img src="https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v" width="200" 
-        height="200">
-        <h1>this is my third cat</h1>
-        <p>this cats name is Luca</p>
+    <div>
+        <img src="https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v" width="200" height="200">
+        <h1>This is my third cat</h1>
+        <p>This cat's name is Luca</p>
         <button class="width-button"><span>Poga3</span></button>
     </div>
 </div>
 
-<!-- Navbar -->
 <ul>
   <li><a class="active" href="#home">Home</a></li>
   <li>
       <a href="#news">News</a>
       <ul class="dropdown">
-          <li><a href="#a">News 1</a></li>
-          <li><a href="#b">News 2</a></li>
-          <li><a href="#c">News 3</a></li>
+          <li><a href="#news1">News 1</a></li>
+          <li><a href="#news2">News 2</a></li>
+          <li><a href="#news3">News 3</a></li>
       </ul>
   </li>
   <li>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
       <ul class="dropdown">
-          <li><a href="#a">Contact 1</a></li>
-          <li><a href="#b">Contact 2</a></li>
-          <li><a href="#c">Contact 3</a></li>
+          <li><a href="#about1">About 1</a></li>
+          <li><a href="#about2">About 2</a></li>
+          <li><a href="#about3">About 3</a></li>
       </ul>
   </li>
-  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
 </ul>
 
-<!-- Modal-->
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Modal Header</h2>
-    </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
-    </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-    </div>
-  </div>
-
-</div>
 </body>
 </html>
 
-<script>
-  // Get the modal
-  var modal = document.getElementById("myModal");
-
-  // Get the button that opens the modal
-  var btn = document.getElementById("myBtn");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks the button, open the modal 
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-
 <style>
-    /* Flexboxes */
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     .flex-container {
         display: flex;
         background-color: rgb(147, 177, 207);
@@ -118,6 +66,7 @@
         margin-top: 41px;
         min-height: calc(100vh - 60px);
         width: 100vw;
+        z-index: 1;
     }
 
     .flex-container > div {
@@ -132,7 +81,7 @@
         width: 300px;
         height: 400px;
         transition: transform 0.5s;
-        z-index: 1;
+        /* z-index: 1; */
     }
 
     .flex-container > div:hover {
@@ -140,14 +89,13 @@
         box-shadow: 10px 5px 15px #3f353f;
     }
 
-    /* Buttons */
     .width-button {
         padding: 12px;
         background-color: rgb(147, 177, 207);
         display: inline-block;
         border-radius: 8px;
-        margin:2px;
-        position:relative;
+        margin: 2px;
+        position: relative;
     }
 
     .width-button span {
@@ -175,107 +123,75 @@
         right: 0;
     }
     
-    /* navbar */
     ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: rgb(118, 141, 163);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        font-family: Arial, Helvetica, sans-serif;
-        z-index: 1;
-    }
+      font-family: Arial, Helvetica, sans-serif;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(118, 141, 163);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* High z-index for the menu bar */
+        }
 
-    li {
-        float: left;
-    }
+        li {
+            float: left;
+            position: relative; /* Important to position dropdown relative to li */
+        }
 
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-    li a:hover {
-        background-color: rgb(99, 117, 134);
-    }
+        li a:hover {
+            background-color: rgb(99, 117, 134);
+        }
 
-    .active {
-        background-color: rgb(174, 196, 216);
-    }
+        .active {
+            background-color: rgb(174, 196, 216);
+        }
 
-    /* Modal Content */
-    .modal-content {
-      position: fixed;
-      bottom: 0;
-      background-color: #fefefe;
-      width: 100%;
-      -webkit-animation-name: slideIn;
-      -webkit-animation-duration: 0.4s;
-      animation-name: slideIn;
-      animation-duration: 0.4s
-    }
+        /* Dropdown styles */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%; /* Show dropdown just below the parent li */
+            left: 0;
+            background-color: rgb(118, 141, 163);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2000; /* Ensure dropdown is visible above other content */
+        }
 
-    /* The Close Button */
-    .close {
-      color: white;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
+        .dropdown li {
+            float: none;
+        }
 
-    .close:hover,
-    .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
+        .dropdown li a {
+            padding: 10px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
 
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
+        .dropdown li a:hover {
+            background-color: rgb(99, 117, 134);
+        }
 
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn {
-  from {bottom: -300px; opacity: 0} 
-  to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-  from {bottom: -300px; opacity: 0}
-  to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
-}
-
-    /* Responsiveness */
+        /* Show the dropdown when hovering over the parent li */
+        li:hover .dropdown {
+            display: block;
+        }
+    
     @media (max-width: 1024px) {
         .flex-container > div {
-            width: 40%;
-            margin: 20px;
+            width: 40%;  /* Reduced width for smaller screens */
+            margin: 10px;
             height: auto;
         }
 
@@ -327,4 +243,5 @@
             font-size: 12px;
         }
     }
+
 </style>
