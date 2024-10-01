@@ -10,21 +10,21 @@
         <img src="https://lh4.googleusercontent.com/qyrA5kR-lTStynpecJwuLKGjrGGV1_6HJ4By4hOYLuVSq4jsm5Q3jgXr-WQHExldtD9WYO4PoEz23IqAeFaExH2UnCDphnutaI7mv3va5VPaRUyS9V-S0NaKNocj6JsIsO6km9E" width="200" height="160">
         <h1>This is my cat</h1>
         <p>This cat's name is Jerry</p>
-        <button class="width-button"><span>Poga1</span></button>
+        <button class="width-button" onclick="openModal('modal1')"><span>Learn More</span></button>
     </div>
 
     <div>
         <img src="https://icatcare.org/app/uploads/2018/10/persian.jpg" width="200" height="150">
         <h1>This is my other cat</h1>
         <p>This cat's name is Thomas</p>
-        <button class="width-button"><span>Poga2</span></button>
+        <button class="width-button" onclick="openModal('modal2')"><span>Learn More</span></button>
     </div>
 
     <div>
         <img src="https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-06/Siamese%201.jpg?h=c17eaee4&itok=BRsemy6v" width="200" height="200">
         <h1>This is my third cat</h1>
         <p>This cat's name is Luca</p>
-        <button class="width-button"><span>Poga3</span></button>
+        <button class="width-button" onclick="openModal('modal3')"><span>Learn More</span></button>
     </div>
 </div>
 
@@ -48,6 +48,31 @@
   </li>
   <li><a href="#contact">Contact</a></li>
 </ul>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h2>More about Jerry</h2>
+    <p>Jerry is a playful cat who loves chasing lasers and playing with yarn. He's very friendly and always looking for attention.</p>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h2>More about Thomas</h2>
+    <p>Thomas is a calm and dignified Persian cat. He loves lounging around and enjoys soft cushions. His favorite activity is napping in the sun.</p>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal3')">&times;</span>
+    <h2>More about Luca</h2>
+    <p>Luca is a Siamese cat known for his vocal personality. He loves interacting with people and has a very curious nature, often getting into mischief.</p>
+  </div>
+</div>
 
 </body>
 </html>
@@ -80,22 +105,52 @@
         box-shadow: 5px 3px 10px #686666;
         width: 300px;
         height: 400px;
-        transition: transform 0.5s;
-        /* z-index: 1; */
+        transition: box-shadow 0.5s;  /* Keep box-shadow transition */
+        overflow: hidden;  /* Hide overflow to prevent image from overflowing the card */
     }
 
+    @keyframes zoom-in {
+    0% {
+        transform: scale(1);  /* Start at normal size */
+    }
+    100% {
+        transform: scale(1.1);  /* Scale up to 110% */
+    }
+}
     .flex-container > div:hover {
         transform: scale(1.05);
         box-shadow: 10px 5px 15px #3f353f;
     }
 
+    .flex-container > div:hover img {
+        animation: zoom-in 0.5s forwards;  /* Run the zoom-in animation */
+        transition: transform 0.5s;  /* Ensure smooth transition */
+    }
+    
     .width-button {
         padding: 12px;
-        background-color: rgb(147, 177, 207);
+        background: linear-gradient(45deg, rgb(147, 177, 207), rgb(118, 141, 163)); /* Initial gradient background */
+        color: white; /* Text color */
         display: inline-block;
         border-radius: 8px;
         margin: 2px;
         position: relative;
+        border: none; /* Remove default border */
+        font-size: 16px; /* Optional: adjust font size */
+        cursor: pointer; /* Pointer on hover */
+        transition: background 0.5s, transform 0.5s; /* Smooth transition for background and transform */
+    }
+
+    /* Hover effect with gradient */
+        .width-button:hover {
+            background: linear-gradient(45deg, rgb(118, 141, 163), rgb(147, 177, 207)); /* Gradient on hover */
+            transform: scale(1.05); /* Optional: slightly enlarge button on hover */
+        }
+
+    /* Optional: add focus style for accessibility */
+    .width-button:focus {
+        outline: none; /* Remove default outline */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
     }
 
     .width-button span {
@@ -124,124 +179,197 @@
     }
     
     ul {
-      font-family: Arial, Helvetica, sans-serif;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: rgb(118, 141, 163);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000; /* High z-index for the menu bar */
-        }
-
-        li {
-            float: left;
-            position: relative; /* Important to position dropdown relative to li */
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: rgb(99, 117, 134);
-        }
-
-        .active {
-            background-color: rgb(174, 196, 216);
-        }
-
-        /* Dropdown styles */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%; /* Show dropdown just below the parent li */
-            left: 0;
-            background-color: rgb(118, 141, 163);
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2000; /* Ensure dropdown is visible above other content */
-        }
-
-        .dropdown li {
-            float: none;
-        }
-
-        .dropdown li a {
-            padding: 10px;
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
-
-        .dropdown li a:hover {
-            background-color: rgb(99, 117, 134);
-        }
-
-        /* Show the dropdown when hovering over the parent li */
-        li:hover .dropdown {
-            display: block;
-        }
-    
-    @media (max-width: 1024px) {
-        .flex-container > div {
-            width: 40%;  /* Reduced width for smaller screens */
-            margin: 10px;
-            height: auto;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
+        font-family: Arial, Helvetica, sans-serif;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(118, 141, 163);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; /* High z-index for the menu bar */
     }
 
-    @media (max-width: 768px) {
-        .flex-container {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .flex-container > div {
-            width: 70%;  /* Make the flexboxes smaller on tablet screens */
-            margin: 10px;
-            height: auto;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
+    li {
+        float: left;
+        position: relative; /* Important to position dropdown relative to li */
     }
 
-    @media (max-width: 480px) {
-        .flex-container {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; /* Center items in mobile */
-        }
-
-        .flex-container > div {
-            width: 85%;  /* Reduced width for mobile */
-            margin: 10px;
-            padding: 10px;  /* Slightly smaller padding for mobile */
-            height: auto;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        ul {
-            font-size: 12px;
-        }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
     }
+
+    li a:hover {
+        background-color: rgb(99, 117, 134);
+    }
+
+    .active {
+        background-color: rgb(174, 196, 216);
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%; /* Show dropdown just below the parent li */
+        left: 0;
+        background-color: rgb(118, 141, 163);
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        z-index: 2000; /* Ensure dropdown is visible above other content */
+    }
+
+    .dropdown li {
+        float: none;
+    }
+
+    .dropdown li a {
+        padding: 10px;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown li a:hover {
+        background-color: rgb(99, 117, 134);
+    }
+
+    /* Show the dropdown when hovering over the parent li */
+    li:hover .dropdown {
+        display: block;
+    }
+
+    /* Modal styling */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 3000; 
+        left: 0;
+        top: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0, 0, 0, 0.5); 
+        overflow: auto; /* Ensures content inside modal is scrollable */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+        border-radius: 8px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover, .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Responsive Media Queries */
+
+/* For screens up to 1024px (iPads in landscape and portrait mode) */
+@media (max-width: 1024px) {
+    .flex-container {
+        flex-direction: row;  /* Keep items horizontal */
+        flex-wrap: wrap;  /* Allow items to wrap if needed */
+        justify-content: space-around;  /* Distribute cards evenly */
+    }
+
+    .flex-container > div {
+        width: 40%;  /* Two items per row for iPads */
+        margin: 15px;
+        height: auto;  /* Flexible height */
+    }
+
+    img {
+        width: 100%;  /* Images should take up the width of the container */
+        height: auto;  /* Maintain aspect ratio */
+    }
+
+    .modal-content {
+        width: 80%;  /* Modal is smaller for iPads */
+        padding: 20px;
+    }
+}
+
+/* For screens up to 768px (smaller tablets) */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: row;  /* Still horizontal on smaller tablets */
+        flex-wrap: wrap;  /* Allow wrapping */
+        justify-content: center;
+    }
+
+    .flex-container > div {
+        width: 48%;  /* Cards are slightly smaller on smaller tablets */
+        margin: 5px;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 85%;  /* Slightly smaller modal for smaller tablets */
+        padding: 15px;
+    }
+}
+
+/* For screens up to 480px (mobile phones) */
+@media (max-width: 480px) {
+    .flex-container {
+        flex-direction: column;  /* Stack items vertically for phones */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flex-container > div {
+        width: 90%;  /* Cards take up most of the screen width on phones */
+        margin: 10px;
+        padding: 5px;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    ul {
+        font-size: 12px;  /* Adjust the font size for the mobile menu */
+    }
+
+    .modal-content {
+        width: 95%;  /* Full-width modal for mobile */
+        padding: 5px;
+    }
+}
+
 
 </style>
+
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+</script>
