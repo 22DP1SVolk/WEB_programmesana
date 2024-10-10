@@ -1,0 +1,446 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(147, 177, 207);
+}
+
+.flex-container {
+    display: flex;
+    background-color: rgb(147, 177, 207);
+    justify-content: center;
+    margin-top: 41px;
+    min-height: calc(100vh - 60px);
+    width: 100vw;
+    z-index: 1;
+}
+
+.flex-container img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 5px; /* Space between image and text */
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 50px;
+    padding: 10px; /* Reduced padding for a tighter fit */
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 5px 3px 10px #686666;
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height to maintain consistency */
+    display: flex; /* Enable flexbox for the container */
+    flex-direction: column; /* Stack children vertically */
+    overflow: hidden; /* Hide overflow to prevent button overlap */
+}
+
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(1); /* Start at normal size */
+    }
+    100% {
+        transform: scale(1.1); /* Scale up to 110% */
+    }
+}
+
+.flex-container > div:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 5px 15px #3f353f;
+}
+
+.flex-container > div:hover img {
+    animation: zoom-in 0.5s forwards; /* Run the zoom-in animation */
+    transition: transform 0.5s; /* Ensure smooth transition */
+}
+
+.flex-container > div p {
+        margin: 0;      /* Reset all margins to zero */
+        padding: 0;     /* Remove any padding */
+        line-height: 2;  /* Control line height to tighten text */
+        margin-bottom: 300x;  /* Small margin below paragraphs */
+    
+}
+
+.width-button {
+    padding: 12px;
+    background: linear-gradient(45deg, rgb(147, 177, 207), rgb(118, 141, 163)); /* Initial gradient background */
+    color: white; /* Text color */
+    border-radius: 8px;
+    border: none; /* Remove default border */
+    font-size: 16px; /* Optional: adjust font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background 0.5s; /* Smooth transition for background */
+    margin-top: auto; /* Push the button to the bottom */
+    text-align: center; /* Center the text inside the button */
+    max-width: 150px; /* Set a max width for the button */
+    align-self: center; /* Center the button horizontally */
+}
+
+.width-button:hover {
+    background: linear-gradient(45deg, rgb(118, 141, 163), rgb(147, 177, 207)); /* Gradient on hover */
+    /* Remove the scaling effect */
+}
+
+.width-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+.width-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: padding-right 0.5s; /* Smooth transition for padding */
+}
+
+.width-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: opacity 0.5s, right 0.5s; /* Smooth transition for right positioning */
+}
+
+.width-button:hover span {
+    padding-right: 25px; /* Add padding on hover */
+}
+
+.width-button:hover span:after {
+    opacity: 1;
+    right: 0; /* Slide in the arrow on hover */
+}
+
+ul {
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(118, 141, 163);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* High z-index for the menu bar */
+}
+
+li {
+    float: left;
+    position: relative; /* Important to position dropdown relative to li */
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgb(99, 117, 134);
+}
+
+.active {
+    background-color: rgb(174, 196, 216);
+}
+
+/* Dropdown styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    font-size: 15px;
+    top: 100%; /* Show dropdown just below the parent li */
+    left: 0;
+    background-color: rgb(118, 141, 163);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2000; /* Ensure dropdown is visible above other content */
+    font-size: 15px;
+}
+
+.dropdown li {
+    float: none;
+}
+
+.dropdown li a {
+    padding: 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown li a:hover {
+    background-color: rgb(99, 117, 134);
+}
+
+/* Show the dropdown when hovering over the parent li */
+li:hover .dropdown {
+    display: block;
+}
+
+/* Modal styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 3000; 
+    left: 0;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    overflow: auto; /* Ensures content inside modal is scrollable */
+}
+
+.modal img {
+    width: 300px;
+    height: 190px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* The switch container */
+.switch {
+    position: absolute;
+    right: 20px; /* Align it on the right side */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the switch */
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* The slider */
+  .switch input {
+    display: none; /* Hide the default checkbox */
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Adjust size for the icon */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "☀️"; /* Default to moon icon for dark mode */
+    color: white;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* Change background and icon when the input is checked */
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    content: "🌙"; /* Switch to sun icon for light mode */
+    transform: translateX(26px); /* Slide the icon to the right */
+  }
+  
+  /* Dark mode styling for the switch */
+  body.dark-mode .slider {
+    background-color: rgb(52, 67, 84);
+  }
+  
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: rgb(23, 49, 77);
+    color: #ffffff;
+}
+
+ul.dark-mode {
+    background-color: rgb(9, 28, 48);
+}
+
+ul.dark-mode li a {
+    background-color: rgb(9, 28, 48);
+    color: #ffffff;
+}
+
+ul.dark-mode li a:hover {
+    background-color: rgb(26, 72, 121);
+}
+
+.flex-container.dark-mode {
+    background-color: rgb(23, 49, 77);
+}
+
+.flex-container.dark-mode > div {
+    background-color: rgb(70, 91, 113);
+    color: #ffffff;
+    box-shadow: 5px 3px 10px #121212;
+}
+
+.flex-container.dark-mode > div:hover {
+    box-shadow: 10px 5px 15px #333;
+}
+
+.width-button.dark-mode {
+    background: linear-gradient(45deg, rgb(124, 139, 156), rgb(167, 183, 201));
+    color: black;
+}
+
+.width-button.dark-mode:hover {
+    background: linear-gradient(45deg, rgb(167, 183, 201), rgb(124, 139, 156));
+}
+
+/* Dark mode for modals */
+.modal.dark-mode .modal-content {
+    background-color: rgb(9, 28, 48);
+    color: #fff;
+}
+
+/* Dark mode for close button */
+.modal.dark-mode .close {
+    color: #fff;
+}
+
+/* Dark Mode for dropdown */
+ul.dark-mode .dropdown {
+    background-color: #444;
+}
+
+ul.dark-mode .dropdown li a {
+    color: white;
+}
+
+
+/* For screens up to 1024px (iPads in landscape and portrait mode) */
+@media (max-width: 1024px) {
+    .flex-container {
+        flex-direction: row;  /* Keep items horizontal */
+        flex-wrap: wrap;  /* Allow items to wrap if needed */
+        justify-content: space-around;  /* Distribute cards evenly */
+    }
+
+    .flex-container > div {
+        width: 40%;  /* Two items per row for iPads */
+        margin: 15px;
+        height: auto;  /* Flexible height */
+    }
+
+    img {
+        width: 100%;  /* Images should take up the width of the container */
+        height: auto;  /* Maintain aspect ratio */
+    }
+
+    .modal-content {
+        width: 80%;  /* Modal is smaller for iPads */
+        padding: 20px;
+    }
+}
+
+/* For screens up to 768px (smaller tablets) */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: row;  /* Still horizontal on smaller tablets */
+        flex-wrap: wrap;  /* Allow wrapping */
+        justify-content: center;
+    }
+
+    .flex-container > div {
+        width: 48%;  /* Cards are slightly smaller on smaller tablets */
+        margin: 5px;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 85%;  /* Slightly smaller modal for smaller tablets */
+        padding: 15px;
+    }
+}
+
+/* For screens up to 480px (mobile phones) */
+
+@media (max-width: 480px) {
+    .flex-container {
+        flex-direction: column;  /* Stack items vertically for phones */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flex-container > div {
+        width: 90%;  /* Cards take up most of the screen width on phones */
+        margin: 10px;
+        padding: 5px;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    ul {
+        font-size: 12px;  /* Adjust the font size for the mobile menu */
+    }
+
+    .modal-content {
+        width: 95%;  /* Full-width modal for mobile */
+        padding: 5px;
+    }
+
+    .dropdown {
+        font-size: 12px;
+    }
+
+    /* Adjust spacing between paragraphs */
+    .flex-container > div p {
+        margin-bottom: 2px; /* Decrease this value to reduce the space between paragraphs */
+    }
+
+    /* Add space between the text and button on mobile */
+    .flex-container > div p:last-of-type {
+        margin-bottom: 20px; /* More space before the button */
+    }
+
+    .width-button {
+        margin-top: 10px; /* Ensure there's space between button and text */
+    }
+}
+
