@@ -40,10 +40,6 @@
     
 
     <div class="navbar">
-        <!-- <a href="#home" class="active">Logo</a>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-            <i class="fa fa-bars"></i>
-        </a> -->
         <div id="myNavbar">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -64,6 +60,15 @@
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>
+                
+                <!-- Search Bar -->
+                <li class="search-bar">
+                    <form action="/search" method="get">
+                        <input type="text" placeholder="Search..." name="search">
+                        <button type="submit">Go</button>
+                    </form>
+                </li>
+                
                 <!-- Dark Mode Toggle Switch -->
                 <label class="switch">
                     <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
@@ -72,47 +77,52 @@
             </ul>
         </div>
     </div>
+    
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal1')">&times;</span>
-    <h2>Plot</h2>
-    <p>The action of the film takes place in the 19th century in a village in the middle of Europe. A young man named Victor (voiced by Johnny Depp) accidentally proposes to the Corpse Bride (voiced by Helena Bonham Carter) and is dragged underground while his real bride Victoria (voiced by Emily Watson) awaits him above ground. Although life in the land of the dead turns out to be much more fun and exciting than life in Victoria's time, the young man soon realizes that nothing on earth or in the underworld will be able to separate him from his beloved Victoria.</p>
-    <h2>Images</h2>
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/3d8702094e.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/354ccc6a18.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/1e36890333.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/593c332061.jpg"> 
-  </div>
-</div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>Plot</h2>
+        <p>The action of the film takes place in the 19th century in a village in the middle of Europe. A young man named Victor (voiced by Johnny Depp) accidentally proposes to the Corpse Bride (voiced by Helena Bonham Carter) and is dragged underground while his real bride Victoria (voiced by Emily Watson) awaits him above ground. Although life in the land of the dead turns out to be much more fun and exciting than life in Victoria's time, the young man soon realizes that nothing on earth or in the underworld will be able to separate him from his beloved Victoria.</p>
+        <h2>Images</h2>
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/3d8702094e.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/354ccc6a18.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/1e36890333.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_5687/gallery/593c332061.jpg"> 
+    </div>
+    </div>
 
-<div id="modal2" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal2')">&times;</span>
-    <h2>Plot</h2>
-    <p>The film follows the misadventures of Jack Skellington, Halloweentown's beloved pumpkin king, who has become bored with the same annual routine of frightening people in the "real world." When Jack accidentally stumbles on Christmastown, all bright colors and warm spirits, he gets a new lease on life - he plots to bring Christmas under his control by kidnapping Santa Claus and taking over the role. But Jack soon discovers even the best-laid plans of mice and skeleton men can go seriously awry.</p>
-    <h2>Images</h2>
-    <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_022.jpg?bwg=1569500395"> 
-    <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_031.jpg?bwg=1569500395"> 
-    <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_044.jpg?bwg=1569500395"> 
-    <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_065.jpg?bwg=1569500395"> 
-  </div>
-</div>
+    <div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>Plot</h2>
+        <p>The film follows the misadventures of Jack Skellington, Halloweentown's beloved pumpkin king, who has become bored with the same annual routine of frightening people in the "real world." When Jack accidentally stumbles on Christmastown, all bright colors and warm spirits, he gets a new lease on life - he plots to bring Christmas under his control by kidnapping Santa Claus and taking over the role. But Jack soon discovers even the best-laid plans of mice and skeleton men can go seriously awry.</p>
+        <h2>Images</h2>
+        <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_022.jpg?bwg=1569500395"> 
+        <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_031.jpg?bwg=1569500395"> 
+        <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_044.jpg?bwg=1569500395"> 
+        <img src="https://film-grab.com/wp-content/uploads/photo-gallery/Nightmare_Before_Christmas_065.jpg?bwg=1569500395"> 
+    </div>
+    </div>
 
-<div id="modal3" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal3')">&times;</span>
-    <h2>Plot</h2>
-    <p>The story of a little boy whose best friend and playmate is the dog Sparky. After his dog dies in an accident, Victor dives into his science class, determined to bring his pet back to life. When it succeeds, his classmates also try to figure out how to do it. However, both the boys and the rest of the town soon realize that such experiments can be dangerous.</p>
-    <h2>Images</h2>
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/104_SA_0720.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/104_SA_2110.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/O_010_MF_0040_v001.0088.jpg"> 
-    <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/195_NG_0090.jpg"> 
-  </div>
-</div>
+    <div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>Plot</h2>
+        <p>The story of a little boy whose best friend and playmate is the dog Sparky. After his dog dies in an accident, Victor dives into his science class, determined to bring his pet back to life. When it succeeds, his classmates also try to figure out how to do it. However, both the boys and the rest of the town soon realize that such experiments can be dangerous.</p>
+        <h2>Images</h2>
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/104_SA_0720.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/104_SA_2110.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/O_010_MF_0040_v001.0088.jpg"> 
+        <img src="http://forumcinemaslv.blob.core.windows.net/1012/Event_7237/gallery/195_NG_0090.jpg"> 
+    </div>
+    </div>
 
-<script src="script.js"></script> <!-- Link to JavaScript file -->
+    <footer>
+        <p>&copy; Tim Burton team</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
 </body>
 </html>
