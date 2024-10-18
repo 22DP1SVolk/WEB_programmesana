@@ -62,11 +62,40 @@ function toggleMenu() {
     }
 }
 
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
+// script.js
+function loadNavbar() {
+    const navbarHTML = `
+        <div class="navbar">
+            <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+            <div id="myNavbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li>
+                        <a href="#about">About</a>
+                        <ul class="dropdown">
+                            <li><a href="aboutWebSite.html">About WEBsite</a></li>
+                            <li><a href="introducingToTimBurton.html">Introducing to Tim Burton</a></li>
+                            <li><a href="events.html">Events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="search-bar">
+                        <form action="/search" method="get">
+                            <input type="text" placeholder="Search..." name="search">
+                            <button type="submit">Go</button>
+                        </form>
+                    </li>
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                        <span class="slider"></span>
+                    </label>
+                </ul>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+}
+
+// Call the function to load the navbar
+loadNavbar();
